@@ -5,7 +5,7 @@
  * Time: 18:21
  * To change this template use File | Settings | File Templates.
  */
-
+package guy.needham.BinarySearchTree;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -76,6 +76,7 @@ public class BST {
 
                 System.out.println("After Insert Loop");
                 String text = printBST();
+                /*
                 StringBuilder sorts = new StringBuilder();
 
                 for (char c : text.toCharArray()) {
@@ -84,9 +85,9 @@ public class BST {
                         sorts.append(" ");
                     }
                 }
-
+				*/
                 innerPanel.removeAll();
-                JLabel outputLabel = new JLabel(sorts.toString());
+                JLabel outputLabel = new JLabel(text.toString());
                 innerPanel.add(outputLabel);
                 innerPanel.validate();
                 innerPanel.repaint();
@@ -109,8 +110,14 @@ public class BST {
             sorted[i] = next.getKey();
             i++;
         }
-
-        return Arrays.toString(sorted);
+        
+        StringBuilder sorts = new StringBuilder();
+        for(int j=0; j<sorted.length; j++){
+        	sorts.append(sorted[j]);
+        	sorts.append(" ");
+        }
+        
+        return String.valueOf(sorts);
     }
 
 }
