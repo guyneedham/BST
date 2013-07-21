@@ -1,0 +1,29 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt]{article} 
+\usepackage{geometry}
+\geometry{a4paper}
+\geometry{margin=1in}
+
+
+\begin{document}
+
+\title{Integer Sorter Technical Document}
+\author{Guy Needham}
+\maketitle
+
+\section{Time Taken}
+This task took me about twelve hours.
+
+\section{Major Design Decisions}
+I used the Swing interface to allow users to easily enter their numbers and get a sorted list of numbers returned.
+The source code has four classes, the main class BST which contains the GUI, TreeNode which creates nodes, BinarySearchTree which creates the tree and BSTIterator which iterates through the tree to produce the output.
+
+\section{Data Structures}
+Input numbers are added to a string which is used to feed them into a binary search tree, where the numbers are stored. The sorted numbers are added to a string, which contains numbers as well as square brackets and commas. This string is parsed into a new string which contains only numbers and spaces, which is used as the output.
+
+\section{Problems and Limitations}
+The input method may present issues, depending on how users interact with the program. The program will not accept input containing any punctuation such as commas or full stops, meaning that in some cases the numbers must be processed before being input into the program. If this became an issue, the input could be processed in the same way that the output numbers are to remove any characters which are not integers. A more major problem is that the process of creating the output splits multiple figure integers into their component digits. For example, the input 1 3 24 5 will be sorted into [1, 3, 5, 24] but the output will read 1 3 5 2 4. The integers are sorted correctly, however the output is incorrect for numbers of more than one character. This is because the code checks the output string by character.
+
+\end{document}
